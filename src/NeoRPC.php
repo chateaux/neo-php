@@ -297,16 +297,15 @@ class NeoRPC
      *
      * @access public
      * @param mixed $script_hash
-     * @param mixed $key
      * @return void
      */
 
-    public function getStorage($script_hash, $key)
+    public function getStorage($script_hash)
     {
         if (!$script_hash)
             throw new \Exception("Empty script hash");
 
-        if (!$key)
+        if(!$key)
             throw new \Exception("Missing key");
 
         return RPCRequest::request($this->active_node, "getstorage", [$script_hash, $key]);
